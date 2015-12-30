@@ -18,12 +18,13 @@ import javax.persistence.Transient;
 
 
 @Entity
-@Table(name="student_info")
+@Table(name="student")
 public class Student {
 	
 	
-	@Id   @GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer roll;
+	
+	@Id  @GeneratedValue(strategy=GenerationType.AUTO)
+	private Integer studentId;
 	
 	
 	//create column with name whatever the value of name and
@@ -33,8 +34,10 @@ public class Student {
 	//Transient is used to ignore the variable completely while creating Db table or
 	//while create , update, insert delete operation
 	@Transient
-	@Column(name="name", nullable=false)
-	private String name;
+	@Column(name="nick_name", nullable=false)
+	private String nick_name;
+	
+	private String studentName;
 	
 	
 	
@@ -50,35 +53,49 @@ public class Student {
 
 
 
-	public Student(Integer roll, String name, Date dob) {
+	public Student(Integer studentId, String nick_name, String studentName,
+			Date dob) {
 		super();
-		this.roll = roll;
-		this.name = name;
+		this.studentId = studentId;
+		this.nick_name = nick_name;
+		this.studentName = studentName;
 		this.dob = dob;
 	}
 
 
 
-	public Integer getRoll() {
-		return roll;
+	public Integer getStudentId() {
+		return studentId;
 	}
 
 
 
-	public void setRoll(Integer roll) {
-		this.roll = roll;
+	public void setStudentId(Integer studentId) {
+		this.studentId = studentId;
 	}
 
 
 
-	public String getName() {
-		return name;
+	public String getNick_name() {
+		return nick_name;
 	}
 
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNick_name(String nick_name) {
+		this.nick_name = nick_name;
+	}
+
+
+
+	public String getStudentName() {
+		return studentName;
+	}
+
+
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
 	}
 
 
@@ -92,6 +109,10 @@ public class Student {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
+
+
+
+	
 
 	
 	
