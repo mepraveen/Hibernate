@@ -7,7 +7,7 @@
     <session-factory>
         <!-- Database connection settings -->
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/hibernateTutorial</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate</property>
         <property name="connection.username">root</property>
         <property name="connection.password"></property>
         
@@ -28,7 +28,7 @@
         <property name="hbm2ddl.auto">create</property>
  
         <!-- Mention here all the model classes along with their package name -->
- 		<mapping class="com.gontuseries.hibernate.Student_Info"/>
+ 		<mapping class="com.praveen.domain.Student"/>
  		
  		 
     </session-factory>
