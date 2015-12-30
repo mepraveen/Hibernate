@@ -11,28 +11,43 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="info")
+@Table(name="student_info")
 public class Student {
 	
-	@Column(name="name")
-	private String name;
 	
 	@Id
 	private Integer roll;
 	
+	@Column(name="name")
+	private String name;
+
 	
-	public String getName() {
-		return name;
+	public Student() {
+		super();
 	}
-	public void setName(String name) {
+
+	public Student(Integer roll, String name) {
+		super();
+		this.roll = roll;
 		this.name = name;
 	}
+
 	public Integer getRoll() {
 		return roll;
 	}
+
 	public void setRoll(Integer roll) {
 		this.roll = roll;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	
 	
 	

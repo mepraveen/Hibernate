@@ -1,15 +1,14 @@
 package com.praveen.hibernate;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-
+import org.hibernate.service.ServiceRegistryBuilder;
 
 public class HibernateUtil {
+
 	private static final SessionFactory sessionFactory = buildSessionFactory();
 	private static ServiceRegistry serviceRegistry;
-
 
 	private static SessionFactory buildSessionFactory() {
 
@@ -17,10 +16,8 @@ public class HibernateUtil {
 			Configuration configuration = new Configuration();
 			configuration.configure();
 
-			
-			
-			serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
-
+			serviceRegistry = new ServiceRegistryBuilder().applySettings(
+					configuration.getProperties()).buildServiceRegistry();
 
 			return configuration.buildSessionFactory(serviceRegistry);
 
@@ -29,12 +26,10 @@ public class HibernateUtil {
 			System.err.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-		
 	}
 
 	public static SessionFactory getSessionFactory() {
 
 		return sessionFactory;
 	}
-
 }

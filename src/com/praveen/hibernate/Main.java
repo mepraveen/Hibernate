@@ -21,6 +21,7 @@ public class Main {
 		
 		
 		session.save(std);
+		session.getTransaction().commit();
 		session.close();
 		sessionFactory.close();
 	}
