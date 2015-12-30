@@ -1,5 +1,7 @@
 package com.praveen.hibernate;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -14,6 +16,7 @@ public class Main {
 		Student std = new Student();
 		std.setName("praveen");
 		std.setRoll(1);
+		std.setDob(new Date());
 		
 		SessionFactory   sessionFactory = HibernateUtil.getSessionFactory();
 		Session session = sessionFactory.openSession();
